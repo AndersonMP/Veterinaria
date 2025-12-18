@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -44,5 +45,10 @@ public class MascotaController {
 
         mascotas.add(nuevaMascota);
         return nuevaMascota;
+    }
+
+    @DeleteMapping("/{id}")
+    public void eliminarMascota(@PathVariable int id) {
+        mascotas.removeIf(m -> m.getId() == id);
     }
 }
