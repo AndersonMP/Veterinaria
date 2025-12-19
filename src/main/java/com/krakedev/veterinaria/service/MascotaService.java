@@ -3,6 +3,7 @@ package com.krakedev.veterinaria.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.krakedev.veterinaria.entity.EstadoMascota;
 import com.krakedev.veterinaria.entity.Mascota;
 
 public interface MascotaService {
@@ -15,6 +16,10 @@ public interface MascotaService {
     Optional<Mascota> buscarPorId(Long id);
 
     Mascota actualizarMascota(Long id, Mascota mascota);
+
+    Mascota cambiarEstadoMascota(Long id, EstadoMascota estadoMascota);
+
+    List<Mascota> listarMascotasPorEstado(EstadoMascota estadoMascota);
 
     void eliminarMascota(Long id);
 }
