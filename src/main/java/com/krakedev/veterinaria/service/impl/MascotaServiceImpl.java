@@ -16,7 +16,7 @@ import lombok.SneakyThrows;
 @Service
 @RequiredArgsConstructor
 public class MascotaServiceImpl implements MascotaService {
-    private MascotaRepository mascotaRepository;
+    private final MascotaRepository mascotaRepository;
 
     @Override
     public Mascota registrarMascota(Mascota mascota) {
@@ -33,12 +33,12 @@ public class MascotaServiceImpl implements MascotaService {
 
     @Override
     public Optional<Mascota> buscarPorNombre(String nombre) {
-        return mascotaRepository.findByMascotaNombre(nombre);
+        return mascotaRepository.findByNombre(nombre);
     }
 
     @Override
     public Optional<Mascota> buscarPorId(Long id) {
-        return mascotaRepository.findByMascotaId(id);
+        return mascotaRepository.findByIdMascota(id);
     }
 
     @Override
