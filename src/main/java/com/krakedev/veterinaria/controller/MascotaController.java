@@ -21,15 +21,15 @@ public class MascotaController {
 
     public MascotaController() {
         mascotas.add(new Mascota(
-                1, "Firulais", "Perro", 3, "Juan Perez", LocalDate.now()));
+                null, "Firulais", "Perro", 3, "Juan Perez", LocalDate.now()));
         mascotas.add(new Mascota(
-                2, "Michi", "Gato", 2, "Ana Gomez", LocalDate.now()));
+                null, "Michi", "Gato", 2, "Ana Gomez", LocalDate.now()));
         mascotas.add(new Mascota(
-                3, "Nemo", "Pez", 1, "Carlos Lopez", LocalDate.now()));
+                null, "Nemo", "Pez", 1, "Carlos Lopez", LocalDate.now()));
         mascotas.add(new Mascota(
-                4, "Bubbles", "Pez", 1, "Maria Rodriguez", LocalDate.now()));
+                null, "Bubbles", "Pez", 1, "Maria Rodriguez", LocalDate.now()));
         mascotas.add(new Mascota(
-                5, "Rex", "Perro", 4, "Luis Martínez", LocalDate.now()));
+                null, "Rex", "Perro", 4, "Luis Martínez", LocalDate.now()));
     }
 
     @GetMapping()
