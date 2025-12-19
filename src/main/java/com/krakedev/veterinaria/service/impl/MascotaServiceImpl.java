@@ -51,6 +51,7 @@ public class MascotaServiceImpl implements MascotaService {
         mascotaExistente.setEspecie(mascota.getEspecie());
         mascotaExistente.setEdad(mascota.getEdad());
         mascotaExistente.setNombreDueno(mascota.getNombreDueno());
+        mascotaExistente.setFechaRegistro(mascota.getFechaRegistro());
 
         return mascotaRepository.save(mascotaExistente);
     }

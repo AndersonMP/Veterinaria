@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -78,6 +80,35 @@ public class MascotaController {
                 : ResponseEntity.status(HttpStatus.NOT_FOUND)
                         .body("Mascota con ID " + id + " no encontrada");
     }
+
+    @PutMapping("/actualizar/{idMascota}")
+    public ResponseEntity<?> actualizarProducto(@PathVariable Long idMascota, @RequestBody Mascota mascota) {
+        try {
+            Mascota mascotaActualizada = new Mascota();
+            mascotaActualizada.setNombre(mascota.getNombre());
+            mascotaActualizada.setEspecie(mascota.getEspecie());
+            mascotaActualizada.setEdad(mascota.getEdad());
+            mascotaActualizada.setNombreDueno(mascota.getNombreDueno());
+            mascotaActualizada.setFechaRegistro(mascota.getFechaRegistro());
+
+            Mascota mascotaBDD = mascotaService.actualizarMascota(idMascota, mascotaActualizada);
+
+            return ResponseEntity.ok().body(mascotaBDD);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
+    @DeleteMapping("/eliminar/{idMascota}")
+    public ResponseEntity<?> eliminarProducto(@PathVariable Long idMascota) {
+        try {
+            mascotaService.eliminarMascota(idMascota);
+            return ResponseEntity.ok().build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
+
 
     // @DeleteMapping("/{id}")
     // public void eliminarMascota(@PathVariable int id) {
