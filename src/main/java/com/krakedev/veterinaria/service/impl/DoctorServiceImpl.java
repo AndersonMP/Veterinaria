@@ -24,7 +24,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public Doctor updateDoctor(Long id, Doctor doctorDetails) {
         Doctor doctor = doctorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Doctor not found with id " + id));
+                .orElseThrow(() -> new RuntimeException("Doctor no encontrado con id " + id));
 
         doctor.setNombre(doctorDetails.getNombre());
         doctor.setApellido(doctorDetails.getApellido());
@@ -41,7 +41,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public void deleteDoctor(Long id) {
         Doctor doctor = doctorRepository.findById(id)
-                .orElseThrow(() -> new RuntimeException("Doctor not found with id " + id));
+                .orElseThrow(() -> new RuntimeException("Doctor no econtrado con id " + id));
         doctorRepository.delete(doctor);
     }
 

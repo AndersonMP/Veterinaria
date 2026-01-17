@@ -17,8 +17,6 @@ public class ConsultaServiceImpl implements ConsultaService {
 
     @Override
     public Consulta createConsulta(Consulta consulta) {
-        // Here we assume Doctor and Paciente entities in the consultation
-        // already contain the IDs or are full objects linked correctly.
         return consultaRepository.save(consulta);
     }
 
