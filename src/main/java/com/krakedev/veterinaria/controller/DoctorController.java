@@ -63,7 +63,7 @@ public class DoctorController {
         if (doctor.isPresent()) {
             return ResponseEntity.ok(doctor.get());
         } else {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor with ID " + id + " not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Doctor con ID " + id + " no econtrado");
         }
     }
 }

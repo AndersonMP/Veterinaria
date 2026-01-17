@@ -24,7 +24,7 @@ public class ConsultaController {
 
     @PostMapping("/registrar")
     public ResponseEntity<Consulta> createConsulta(@RequestBody Consulta consulta) {
-        // Validation could be added here to ensure Doctor and Paciente IDs are present
+        
         Consulta newConsulta = consultaService.createConsulta(consulta);
         return ResponseEntity.status(HttpStatus.CREATED).body(newConsulta);
     }
